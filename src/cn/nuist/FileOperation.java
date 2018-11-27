@@ -13,13 +13,9 @@ import java.util.Iterator;
 public class FileOperation {
 
 	public static void main(String[] args) throws IOException {
-		String fileName = "/Users/cjz/Desktop/email_1133_5451.txt";	
+		String fileName = "/Users/cjz/data/email_1133_5451.txt";	
 		ArrayList<Integer[]> mylist = readFile(fileName);
-//		Integer[] intArray = null;
-//		for(int i = 0; i < mylist.size(); i ++) {
-//			intArray = mylist.get(i);
-//			System.out.println(intArray[0] + "," +intArray[1] );
-//		}
+
 		
 		HashMap<Integer, HashSet<Integer>> relation_map 
 		= build_relationship(mylist);
@@ -27,10 +23,41 @@ public class FileOperation {
 		
 		visit_set(relation_map.get(2));
 		
-		System.out.println(is_connected(relation_map,
-				1,100));
+//		System.out.println(is_connected(relation_map,
+//				1,100));
+		
+		
+		HashSet<Integer> visited_set = new HashSet();
+		
+		 visit_net(relation_map,visited_set, 1134);
+		 System.out.println(relation_map.size());
+			System.out.println(visited_set.size());
+		
+		
+	
 
 	}
+	
+	
+	private static void visit_net(HashMap<Integer, HashSet<Integer>> relation_map,
+			HashSet<Integer> visited_set, Integer id) {
+		if(!visited_set.contains(id)) {
+			visited_set.add(id);
+			HashSet<Integer> tmpSet = relation_map.get(id);
+			Iterator<Integer> it = tmpSet.iterator();
+			Integer tmp_id = 0;
+			while(it.hasNext()) {
+				tmp_id = it.next();
+				visit_net(relation_map,visited_set, tmp_id);
+			}
+			
+		}
+		
+		
+	}
+	
+	
+	
 	
 	private static boolean is_connected(HashMap<Integer, HashSet<Integer>> relation_map,
 			Integer id1, Integer id2) {

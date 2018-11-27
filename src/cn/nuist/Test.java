@@ -1,6 +1,7 @@
 package cn.nuist;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,7 +18,7 @@ public class Test {
 		
 
 		
-//		Integer i = new Integer(1);
+//		Integer i = 1;
 //		Integer j = new Integer(1);
 //		System.out.println(i == j);
 //		System.out.println(i.equals(j));
@@ -38,23 +39,45 @@ public class Test {
 		Point p2 = new Point(2,2);
 		Point p3 = new Point(3,3);
 		Point p4 = new Point(2,2);
+
+//		List<Point> pList = new ArrayList<Point>();
+//		pList.add(p1);
+//		pList.add(p2);
+//		pList.add(p3);
+//		pList.add(p4);
+//         System.out.println(pList.size());	
+         
+   
+         
+//		Set<Point> myset = new HashSet<Point>();
+//		myset.add(p1);
+//		myset.add(p2);
+//		myset.add(p3);
+//		myset.add(p4);
+//		System.out.println(myset.size());
+
+
+//		HashMap<Point, Integer> testmap = 
+//				new HashMap<Point, Integer>();
+//		testmap.put(p1, 1);
+//		System.out.println(testmap.get(p1));
+//		p1.y = 100;
+//		System.out.println(testmap.get(p1));
+		
+//		Singleton s1 = new Singleton();
+//		Singleton s2 = new Singleton();
+		
+//		System.out.println(s1 == s2);
+//		System.out.println(s1.equals(s2));
+		
+		Singleton s1 = Singleton.getSingleton();
+		Singleton s2 = Singleton.getSingleton();
 		
 		
-		List<Point> pList = new ArrayList<Point>();
-		pList.add(p1);
-		pList.add(p2);
-		pList.add(p3);
-		pList.add(p4);
-		
-		Set<Point> myset = new HashSet<Point>();
-		myset.add(p1);
-		myset.add(p2);
-		myset.add(p3);
-		myset.add(p4);
-		System.out.println(myset.size());
+		System.out.println(s1 == s2);
+		System.out.println(s1.equals(s2));
 		
 		
-//		System.out.println(pList.size());
 
 		
 
